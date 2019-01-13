@@ -1,10 +1,13 @@
-@import "var";
-@import "mixins";
-@import "fonts";
+@import "./var";
+@import "./mixins";
+@import "./fonts";
+
 /* Reset -------------------------------------------------------------------- */
-@import "reset";
+@import "./reset";
+
 /* Styles -------------------------------------------------------------------- */
-@import "components";
-@import "base";
+@import "./components";
+@import "./base";
+
 /* Media -------------------------------------------------------------------- */
-@import "media";
+@import "./media";
