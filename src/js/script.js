@@ -5,13 +5,13 @@
 $(document).ready(function() {
 	//SVG-Sprites
 	function buildSvgSprite() {
-		let file = 'img/svg/symbol_sprite.html',
+		var file = '../img/svg/symbol_sprite.html',
 			revision = 1;
 
 		if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect)
 			return true;
 			
-		let isLocalStorage = 'localStorage' in window && window['localStorage'] !== null,
+		var isLocalStorage = 'localStorage' in window && window['localStorage'] !== null,
 			request,
 			data,
 			insertIT = function() {
