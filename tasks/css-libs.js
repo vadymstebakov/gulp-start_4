@@ -6,8 +6,6 @@ const $ = require('gulp-load-plugins')();
 module.exports = function(options) {
 	return function() {
 		return gulp.src(options.src)
-			.pipe($.cached('cssLibs'))
-			.pipe($.newer(options.dist))
 			.pipe($.plumber({
 				errorHandler: $.notify.onError(function(err) {
 					return {
@@ -16,6 +14,7 @@ module.exports = function(options) {
 					};
 				})
 			}))
+			.pipe($.cached('cssLibs'))
 			.pipe($.debug({title: 'DEBUG css-libs'}))
 			.pipe($.remember('cssLibs'))
 			.pipe($.concat('libs.css'))

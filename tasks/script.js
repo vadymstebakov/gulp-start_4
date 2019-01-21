@@ -6,8 +6,6 @@ const $ = require('gulp-load-plugins')();
 module.exports = function(options) {
 	return function() {
 		return gulp.src(options.src)
-			.pipe($.cached('js'))
-			.pipe($.newer(options.dist))
 			.pipe($.plumber({
 				errorHandler: $.notify.onError(function(err) {
 					return {
@@ -16,6 +14,7 @@ module.exports = function(options) {
 					};
 				})
 			}))
+			.pipe($.cached('js'))
 			.pipe($.babel({
 				presets: ['@babel/env'],
 				retainLines: true
