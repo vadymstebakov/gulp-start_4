@@ -21,7 +21,7 @@ const path = {
 		svg: 'src/img/svg/**/*.svg'
 	},
 	watch: {
-		html: 'src/*.{html,access}',
+		html: ['src/*.{html,access}', 'src/template/*.html'],
 		style: 'src/scss/**/*.scss',
 		cssLibs: 'src/libs-css/**/*.css',
 		js: 'src/js/**/*.js',

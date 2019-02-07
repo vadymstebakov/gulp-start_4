@@ -17,6 +17,7 @@ module.exports = function(options) {
 			.pipe($.cached('html'))
 			.pipe($.debug({title: 'DEBUG html'}))
 			.pipe($.remember('html'))
+			.pipe($.rigger())
 			.pipe(gulp.dest(options.dist));
 	};
 };

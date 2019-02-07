@@ -1,3 +1,7 @@
-@mixin transition($time) {
+@mixin transitionEase($time) {
 	transition: all $time ease;
+}
+
+@mixin transitionLinear($time) {
+	transition: all $time linear;
 }
