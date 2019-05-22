@@ -16,12 +16,12 @@ module.exports = function(options) {
 					};
 				})
 			}))
-			.pipe($.if(argv.dev, $.sourcemaps.init()))
 			.pipe($.cached('style'))
 			.pipe($.sassInheritance({dir: 'src/scss/'}))
 			.pipe($.filter(function (file) {
 				return !/\/_/.test(file.path) || !/^_/.test(file.relative);
 			}))
+			.pipe($.if(argv.dev, $.sourcemaps.init()))
 			.pipe($.sass({outputStyle: 'expanded'}))
 			.pipe($.autoprefixer({
 				browsers: ['> 0.1%'],

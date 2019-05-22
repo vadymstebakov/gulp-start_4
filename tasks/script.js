@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const argv = require('yargs').argv;
 const $ = require('gulp-load-plugins')();
 
 module.exports = function(options) {
@@ -15,6 +16,7 @@ module.exports = function(options) {
 				})
 			}))
 			.pipe($.cached('js'))
+			.pipe($.if(argv.dev, $.sourcemaps.init()))
 			.pipe($.babel({
 				presets: ['@babel/env'],
 				retainLines: true
@@ -23,6 +25,7 @@ module.exports = function(options) {
 			.pipe($.remember('js'))
 			// .pipe($.concat('script.min.js'))
 			// .pipe($.uglifyjs())
+			.pipe($.if(argv.dev, $.sourcemaps.write()))
 			.pipe(gulp.dest(options.dist));
 	};	
 };
