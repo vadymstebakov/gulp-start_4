@@ -224,3 +224,7 @@ input[type=number] {
 select::-ms-expand {
     display: none;
 }
+
+@include input-placeholder {
+	line-height: normal;
+}

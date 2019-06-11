@@ -23,16 +23,17 @@ module.exports = function(options) {
 			}))
 			.pipe($.if(argv.dev, $.sourcemaps.init()))
 			.pipe($.sass({outputStyle: 'expanded'}))
-			.pipe($.autoprefixer({
-				browsers: ['> 0.1%'],
-				cascade: false
-			}))
+			.pipe($.autoprefixer())
+			// .pipe($.autoprefixer({
+			// 	browsers: ['> 0.1%'],
+			// 	cascade: false
+			// }))
 			.pipe($.debug({title: 'DEBUG style'}))
 			.pipe($.remember('style'))
-			// .pipe($.cssnano())
-			// .pipe($.rename({
-			//     suffix: '.min'
-			// }))
+			.pipe($.cssnano())
+			.pipe($.rename({
+			    suffix: '.min'
+			}))
 			.pipe($.if(argv.dev, $.sourcemaps.write()))
 			.pipe(gulp.dest(options.dist));
 	};	
