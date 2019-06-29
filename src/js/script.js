@@ -4,14 +4,13 @@
 
 $(document).ready(function() {
 	//SVG-Sprites
-	function buildSvgSprite() {
-		var file = '../img/svg/symbol_sprite.html',
+	(function buildSvgSprite() {
+		let file = '../img/svg/symbol_sprite.html',
 			revision = 1;
 
-		if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect)
-			return true;
+		if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect) return true;
 			
-		var isLocalStorage = 'localStorage' in window && window['localStorage'] !== null,
+		let isLocalStorage = 'localStorage' in window && window['localStorage'] !== null,
 			request,
 			data,
 			insertIT = function() {
@@ -46,21 +45,24 @@ $(document).ready(function() {
 
 			request.send();
 		} catch (e) {}
-	}
-	buildSvgSprite();
+	}) ();
+	
 
 	
 
 	// Resize function
-	let doit; 
+	(function fnResize() {
+		let doit; 
 
-	function resized() {
+		function resized() {
+			
+		}
 		
-	}
-	window.onresize = function() { 
-		clearTimeout(doit); 
-		doit = setTimeout(function() { 
-			resized(); 
-		}, 100); 
-	};
+		window.onresize = function() { 
+			clearTimeout(doit); 
+			doit = setTimeout(function() { 
+				resized(); 
+			}, 50); 
+		};
+	}) ();
 });

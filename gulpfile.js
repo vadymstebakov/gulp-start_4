@@ -100,7 +100,7 @@ lazyRequireTask('browser-sync', './tasks/browser-sync.js', {
 });
 
 // Builder
-gulp.task('build', gulp.parallel(
+gulp.task('build', gulp.series(
 	'html',
 	'style',
 	'cssLibs',
